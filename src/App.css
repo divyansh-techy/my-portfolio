@@ -1,42 +1,90 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* src/App.css */
+
+/* 1. A better, modern font and background */
+body {
+  margin: 0;
+  /* 'Inter' is a beautiful, modern font. It falls back to system fonts. */
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f0f2f5; /* A very light, clean grey background */
+}
+
+/* 2. The new "Glass" Navbar */
+nav {
+  /* --- Positioning --- */
+  position: fixed; /* This is the key! It "sticks" the nav to the top */
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures the nav is always on top of other content */
+
+  /* --- Sizing & Layout --- */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 5%; /* Use % for responsive side padding */
+  box-sizing: border-box; /* Ensures padding doesn't break the 100% width */
+
+  /* --- The "Glass" Effect --- */
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* This is the magic "blur" property! */
+  -webkit-backdrop-filter: blur(10px); /* For Safari browser support */
+  
+  /* --- A subtle border and shadow --- */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 3. The Logo (Your Name) */
+.nav-logo a {
+  font-size: 1.75rem; /* A bit larger */
+  font-weight: 700; /* Bolder */
+  color: #1a1a1a; /* Dark, but not pure black */
+  text-decoration: none;
+}
+
+/* 4. The Links List */
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem; /* More space between links */
+}
+
+/* 5. The Individual Links (with new "Pill" hover effect) */
+.nav-links a {
+  text-decoration: none;
+  color: #333; /* A strong, readable text color */
+  font-weight: 600; /* Semi-bold */
+  font-size: 1rem;
+  padding: 0.5rem 1rem; /* This creates the "pill" shape area */
+  border-radius: 99px; /* This makes the padding round */
+  
+  /* This is the key for smooth animation */
+  transition: all 0.3s ease;
+}
+
+/* 6. The Hover Effect */
+.nav-links a:hover {
+  background-color: #e0e7ff; /* A very light, modern blue/purple */
+  color: #4f46e5; /* A matching vibrant text color */
+}
+
+/* 7. Styles for our Dummy Content (so we can scroll) */
+.content {
+  /* This creates a gradient background just to look interesting */
+  background: linear-gradient(180deg, #f0f2f5 0%, #d6e0ff 100%);
+}
+
+#dummy-home {
+  /* This must be taller than the navbar! */
+  padding-top: 150px; 
+  height: 200vh; /* This makes the page 2x screen height, so you MUST scroll */
   text-align: center;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+#dummy-home h1 {
+  font-size: 3.5rem;
+  color: #1a1a1a;
 }
