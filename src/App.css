@@ -1,6 +1,10 @@
+html {
+  scroll-behavior: smooth;
+}
+
 /* src/App.css */
 
-/* 1. A better, modern font and background */
+/* --- 1. Basic Page & Body Styles --- */
 body {
   margin: 0;
   /* 'Inter' is a beautiful, modern font. It falls back to system fonts. */
@@ -8,7 +12,31 @@ body {
   background-color: #f0f2f5; /* A very light, clean grey background */
 }
 
-/* 2. The new "Glass" Navbar */
+/* --- 2. Global Button Styles --- */
+/* This is a "global" button style we can reuse */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* This is the main "accent" button from the design */
+.btn-primary {
+  background-color: #ff6600; /* A bright orange accent */
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #e65c00; /* A slightly darker orange */
+  transform: translateY(-2px); /* A subtle "lift" effect */
+  box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+}
+
+/* --- 3. The "Glass" Navbar --- */
 nav {
   /* --- Positioning --- */
   position: fixed; /* This is the key! It "sticks" the nav to the top */
@@ -33,7 +61,7 @@ nav {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* 3. The Logo (Your Name) */
+/* --- 4. Nav Logo & Links --- */
 .nav-logo a {
   font-size: 1.75rem; /* A bit larger */
   font-weight: 700; /* Bolder */
@@ -41,7 +69,6 @@ nav {
   text-decoration: none;
 }
 
-/* 4. The Links List */
 .nav-links {
   display: flex;
   list-style: none;
@@ -50,7 +77,6 @@ nav {
   gap: 2rem; /* More space between links */
 }
 
-/* 5. The Individual Links (with new "Pill" hover effect) */
 .nav-links a {
   text-decoration: none;
   color: #333; /* A strong, readable text color */
@@ -63,28 +89,395 @@ nav {
   transition: all 0.3s ease;
 }
 
-/* 6. The Hover Effect */
 .nav-links a:hover {
   background-color: #e0e7ff; /* A very light, modern blue/purple */
   color: #4f46e5; /* A matching vibrant text color */
 }
 
-/* 7. Styles for our Dummy Content (so we can scroll) */
-.content {
-  /* This creates a gradient background just to look interesting */
-  background: linear-gradient(180deg, #f0f2f5 0%, #d6e0ff 100%);
+/* --- 5. Hero Section Styles --- */
+.hero-section {
+  display: flex; /* This creates the two-column layout */
+  align-items: center; /* Vertically centers the content */
+  justify-content: space-between; /* Pushes columns to opposite ends */
+  min-height: 90vh; /* Makes the section almost full-height */
+  
+  /* This must be taller than the navbar! */
+  padding-top: 100px; 
+  
+  /* Use % for responsive side padding, like the navbar */
+  padding-left: 5%;
+  padding-right: 5%;
+  
+  gap: 2rem; /* Adds space between the text and image */
+  background-color: #f0f2f5; /* Light grey background from design */
 }
 
-#dummy-home {
-  /* This must be taller than the navbar! */
-  padding-top: 150px; 
-  height: 200vh; /* This makes the page 2x screen height, so you MUST scroll */
+.hero-content {
+  flex: 1; /* Allows the content to grow */
+  max-width: 600px;
+}
+
+.hero-image {
+  flex: 1; /* Allows the image to grow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  max-height: 70vh; /* Controls the max image height */
+  border-radius: 12px; /* Softly rounded corners */
+}
+
+/* --- 6. Hero Text Styling --- */
+.hero-intro {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #555;
+  margin: 0;
+}
+
+.hero-name {
+  font-size: 4rem; /* Big and bold */
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0.5rem 0;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ff6600; /* Use the accent color */
+  margin: 0 0 1.5rem 0;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* src/App.css */
+
+/* --- Add these new styles --- */
+
+/* --- Global Section Title Styles --- */
+/* We can reuse these for all our sections */
+.section-subtitle {
   text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+
+/* --- About Section Styles --- */
+.about-section {
+  /* This creates the alternating color effect */
+  background-color: #ffffff; 
+  
+  /* Standard padding */
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   padding-left: 5%;
   padding-right: 5%;
 }
 
-#dummy-home h1 {
-  font-size: 3.5rem;
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem; /* A bit more space */
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Nice shadow */
+}
+
+.about-content {
+  flex: 1.2; /* Give the text a little more space than the image */
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* --- Stats Bar Styles --- */
+.about-stats {
+  display: flex;
+  justify-content: space-around; /* Evenly space the items */
+  flex-wrap: wrap; /* Allow them to wrap on small screens */
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: #f0f2f5; /* Light grey background for contrast */
+  border-radius: 12px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1; /* Helps them space out evenly */
+  min-width: 150px; /* Prevents them from getting too squished */
+  margin: 0.5rem;
+  padding: 1.5rem 1rem; /* Add padding for the background */
+  border-radius: 12px; /* Rounded corners */
+  transition: all 0.3s ease-in-out; /* The smooth animation! */
+}
+
+.stat-item:hover {
+  background-color: #ffffff; /* The "pop" to a white background */
+  transform: translateY(-8px); /* The "lift" effect */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* A soft shadow */
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ff6600; /* Use our accent color */
+}
+
+.stat-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+}
+
+/* src/App.css */
+
+/* --- Add these new styles --- */
+
+/* --- Services Section Styles --- */
+.services-section {
+  background-color: #f0f2f5; /* Light grey background */
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.services-grid {
+  display: grid;
+  /* This creates 3 equal-width columns */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 2rem; /* Space between the cards */
+}
+
+.service-card {
+  background-color: #ffffff; /* White card background */
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+
+.service-card:hover {
+  transform: translateY(-10px); /* "Lift" effect on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  font-size: 3rem; /* Makes the icon large */
+  color: #ff6600; /* Use our accent color */
+  margin-bottom: 1.5rem;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: 600;
   color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.service-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* --- Making it Responsive (for smaller screens) --- 
+  This is a 'media query'. It will apply these styles
+  only when the screen is 1024px wide or less.
+*/
+@media (max-width: 1024px) {
+  .services-grid {
+    /* 2 columns on tablets */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    /* 1 column on mobile phones */
+    grid-template-columns: 1fr;
+  }
+}
+
+/* src/App.css */
+
+/* --- Add these new styles for Skills --- */
+/* (Make sure you deleted the .portfolio-section styles) */
+
+.skills-section {
+  /* This will have a white background, alternating from Services */
+  background-color: #ffffff; 
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.skills-grid {
+  display: grid;
+  /* 4 columns on desktop, 
+     auto-fit will wrap them nicely on smaller screens */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2.5rem; /* Space between cards */
+  max-width: 1200px;
+  margin: 0 auto; /* Center the grid */
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f2f5; /* Light grey card background */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* Pop to white on hover */
+}
+
+/* This is the key to putting the icon in the middle */
+.skill-progress-container {
+  width: 120px; /* Set the size of the circle */
+  height: 120px;
+  position: relative; /* This is the parent */
+  margin-bottom: 1.5rem;
+}
+
+/* This styles the icon */
+.skill-icon {
+  /* This centers the icon inside the container */
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  font-size: 3.5rem; /* Size of the icon */
+  color: #333; /* Icon color */
+}
+
+.skill-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 0.25rem 0;
+}
+
+.skill-percentage {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ff6600; /* Use our accent color */
+  margin: 0;
+}
+
+/* src/App.css */
+
+/* --- Add these new styles --- */
+
+/* --- Contact Section Styles --- */
+.contact-section {
+  background-color: #f0f2f5; /* Light grey background */
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* This is the white card container for the form */
+.contact-form {
+  max-width: 600px; /* Set a max width for the form */
+  margin: 0 auto; /* This centers the form */
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* This holds each label/input pair */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block; /* Makes the label take its own line */
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* This styles BOTH <input> and <textarea> */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: inherit; /* Use the same font as the body */
+  color: #1a1a1a;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box; /* Important for 100% width */
+  transition: all 0.3s ease;
+}
+
+/* Nice focus effect */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ff6600; /* Use our accent color */
+  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.form-group textarea {
+  resize: vertical; /* Allow user to resize height only */
+  min-height: 120px;
+}
+
+/* A new utility class for a full-width button */
+.btn-full-width {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 0.85rem 1.5rem;
 }
